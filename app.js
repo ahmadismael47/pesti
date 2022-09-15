@@ -17,12 +17,11 @@ app.get("/api/products", (req, res) => {
   res.status(200).json(products)
 })
 
-app.get("/api/products/:id", (req, res) => {
-  var name = req.query.name
-  var isAuthor = req.query.isAuthor
+app.get("/api/products/search", (req, res) => {
+  const category = req.query.category
+
   res.json({
-    name,
-    isAuthor,
+    category,
   })
 })
 app.get("/api/products/:id", (req, res) => {

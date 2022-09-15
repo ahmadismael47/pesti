@@ -42,6 +42,7 @@ const renderProducts = () => {
                     class="product-info_media"
                     alt=""
                     src="${image}"
+                    
                     />
                     <div class="product-info_details">
                         <h5>${name}</h5>
@@ -54,6 +55,31 @@ const renderProducts = () => {
     })
     .join("")
 }
+
+const searchBtn = document.querySelector(".search-btn")
+
+const getValue = async () => {
+  const search = document.querySelector(".search-input").value
+  try {
+    const { data } = await axios.get("/api/products")
+    if (search === "") {
+      renderProducts(productsList)
+    }
+    let searchedProd = data.filter(
+      (p) =>
+        p.category.startsWith(search) ||
+        p.name.startsWith(search) ||
+        p.brand.startsWith(search)
+    )
+    console.log(searchedProd)
+    productsList = searchedProd
+    renderProducts(productsList)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+searchBtn.addEventListener("click", getValue)
 
 prodItem.classList.add("product-list_items")
 productsCont.append(prodItem)
