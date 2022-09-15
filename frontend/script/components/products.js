@@ -59,21 +59,23 @@ const renderProducts = () => {
 const searchBtn = document.querySelector(".search-btn")
 
 const getValue = async () => {
-  const search = document.querySelector(".search-input").value
+  let search = document.querySelector(".search-input").value
   try {
     const { data } = await axios.get("/api/products")
     if (search === "") {
       renderProducts(productsList)
+    } else {
+      let searchedProd = data.filter(
+        (p) =>
+          p.category.toLowerCase().startsWith(search.toLowerCase()) ||
+          p.name.toLowerCase().startsWith(search.toLowerCase()) ||
+          p.brand.toLowerCase().startsWith(search.toLowerCase())
+      )
+
+      console.log(searchedProd)
+      productsList = searchedProd
+      renderProducts(productsList)
     }
-    let searchedProd = data.filter(
-      (p) =>
-        p.category.startsWith(search) ||
-        p.name.startsWith(search) ||
-        p.brand.startsWith(search)
-    )
-    console.log(searchedProd)
-    productsList = searchedProd
-    renderProducts(productsList)
   } catch (error) {
     console.log(error)
   }
@@ -118,11 +120,8 @@ const renderLason = (e) => {
   lason.classList.add("tab--active")
 }
 const renderAll = () => {
-  equipments.forEach((i) => i.classList.remove("none"))
-  qwerty.forEach((i) => i.classList.remove("none"))
-  btnCont.forEach((b) => b.classList.remove("tab--active"))
   allCatBtn.classList.add("tab--active")
-  console.log("equipss only")
+  fetchProducts()
 }
 
 let counts = 0

@@ -33,7 +33,7 @@ const products = [
     description:
       "Chapin's Push (walk behind) Spray holds 12 gallons for large area coverage. It has 12. wide pneumatic tires that navigates rough terrain. The Chapin 12 Gallon 24v Push Sprayer (#97900) has a boom arm (movable spraying arm) that can be positioned to the left or right for accommodation for walk behind boom sprayer and change it to spot spraying with a wand by simply flipping a switch. t has a wide mouth opening for easy pouring of liquids for pesticides, herbicides, fungicides, and fertilizers.",
     brand: "Chapin",
-    category: "qwerty",
+    category: "equipment",
     price: 9249.99,
     countInStock: 5,
     rating: 3,
@@ -46,7 +46,7 @@ const products = [
     description:
       "MR 100 Primo Steam Cleaning System by Vapamore is a bed bug steamer as well as a cleaner and sanitizer. One of the treatment methods for bed bug control is steam cleaning. This bed bug steamer is one of the best for shooting out the steam.This bed bug steamer and steam cleaning system releases a steam temperature between 210- 220 degrees for killing bed bugs and eggs as well as killing dust mites and allergens.",
     brand: "MR",
-    category: "qwerty",
+    category: "equipment",
     price: 3939.99,
     countInStock: 11,
     rating: 5,
