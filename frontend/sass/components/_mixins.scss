@@ -1,0 +1,68 @@
+@mixin flex {
+  display: flex;
+  align-items: center;
+}
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flexRowBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin absoluteCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin onHover {
+  &:hover {
+    opacity: 0.8;
+  }
+}
+@mixin blurry {
+  filter: blur(0.2rem);
+}
+
+// BREAAAAAAAAAKKKKKKKKKKPPOIIIIIIIIIIINNNNNNTTTTTTTTTSSSSSSSSS
+
+$breakpoints: (
+  "sm": 550px,
+  "md": 768px,
+  "lg": 1336px,
+  "xl": 1920px,
+);
+// "sm": 425px,
+@mixin sm {
+  @media (max-width: map-get($breakpoints, "sm")) {
+    @content;
+  }
+}
+// "md": 768px,
+@mixin md {
+  @media (max-width: map-get($breakpoints, "md")) {
+    @content;
+  }
+}
+// "lg": 1336px,
+@mixin lg {
+  @media (max-width: map-get($breakpoints, "lg")) {
+    @content;
+  }
+}
+// "xl": 1920px,
+@mixin xl {
+  @media (max-width: map-get($breakpoints, "xl")) {
+    @content;
+  }
+}
+
+@mixin breakpoint($bp: 0) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}

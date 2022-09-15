@@ -1,0 +1,122 @@
+@use "../custom" as *;
+@use "../components/mixins" as *;
+
+.services {
+  @include flexCenter;
+  position: absolute;
+  top: 60%;
+
+  hr {
+    height: 3rem;
+    width: 100%;
+    position: absolute;
+    top: -300%;
+    background-color: $primary-color;
+    border: none;
+    filter: blur(4rem);
+  }
+  .services-box {
+    @include flexCenter;
+    flex-direction: column;
+    position: absolute;
+    margin-top: 15rem;
+
+    .heading-services {
+      margin-bottom: 6.6rem;
+    }
+    &_offer {
+      @include flexCenter;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.35);
+      width: clamp(40rem, 95%, 100rem);
+      border: 1px solid $border-color;
+      padding: 1.6rem;
+      gap: 2.4rem;
+      position: relative;
+      .tab-container {
+        display: flex;
+        flex-direction: row;
+        gap: 1.6rem;
+        position: absolute;
+        top: 0%;
+        .tab {
+          transform: translateY(-50%);
+          ////////////////////////////////remove later
+          width: clamp(15rem, 80%, 17rem);
+          padding: 1rem 3.6rem;
+          font-size: 1.7rem;
+          font-weight: 600;
+          background-color: $primary-color;
+          white-space: nowrap;
+          @include breakpoint(968px) {
+            padding: 0.8rem 2rem;
+          }
+          @include sm {
+            padding: 0.5rem 1rem;
+          }
+          &--active {
+            background-color: $secondary-color;
+            transform: translateY(-4.2rem);
+          }
+        }
+      }
+      .content-container {
+        .content {
+          display: none;
+
+          &--active {
+            display: flex;
+          }
+
+          &-texts {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: $text-color;
+
+            .content-header {
+              font-size: 4rem;
+            }
+            p {
+              margin-top: 1rem;
+              font-size: 1.4rem;
+              font-weight: 300;
+              text-align: start;
+              line-height: 1.8;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include breakpoint(1200px) {
+    top: 60%;
+  }
+  @include breakpoint(968px) {
+    top: 55%;
+  }
+  @include md {
+    top: 40%;
+    img {
+      width: 30%;
+    }
+  }
+  @include sm {
+    top: 50%;
+    .content-container {
+      .content {
+        &--active {
+          flex-direction: column;
+          align-items: center;
+          img {
+            @include absoluteCenter;
+            opacity: 0.2;
+            width: 45%;
+            z-index: -1;
+          }
+        }
+      }
+    }
+  }
+}

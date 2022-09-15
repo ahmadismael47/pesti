@@ -1,0 +1,219 @@
+@use "../custom" as *;
+@use "../components/mixins" as *;
+
+.product {
+  @include flexCenter;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 15rem;
+  width: 100%;
+  color: $text-color;
+  &-hero {
+    @include flexCenter;
+    padding: 1rem;
+    gap: 1.6rem;
+    width: 90%;
+    .product-hero_left {
+      width: 50%;
+    }
+    .product-hero_right {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      width: 50%;
+    }
+    img {
+      width: 100%;
+    }
+
+    .circle {
+      height: clamp(5rem, 20%, 12rem);
+      width: clamp(5rem, 20%, 12rem);
+      opacity: 0.8;
+      border-radius: 50%;
+      position: absolute;
+      //   background-color: $primary-color;
+      background-color: $secondary-color;
+
+      &::before {
+        content: "Pesti shop";
+        font-size: 2.4rem;
+        font-weight: 600;
+        @include absoluteCenter;
+      }
+    }
+  }
+
+  &-feature {
+    width: 90%;
+
+    &_cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 1rem;
+
+      .card {
+        @include flexCenter;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: rgba(0, 0, 0, 0.45);
+        min-height: 15rem;
+        padding: 1.6rem;
+        border: 1px solid $border-color;
+        &--icon {
+          border-radius: 50%;
+          filter: grayscale(0.4);
+          i {
+            font-size: 3rem;
+            color: $primary-color;
+          }
+        }
+
+        h4 {
+          font-size: 1.7rem;
+          font-weight: 300;
+          text-align: center;
+        }
+
+        &--mid-up {
+          text-align: center;
+        }
+        &--mid-bot {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &-list {
+    width: 90%;
+    margin-top: 6.4rem;
+    gap: 1rem;
+    background-color: rgba(0, 0, 0, 0.45);
+    padding: 1.6rem;
+    border: 1px solid $border-color;
+    img {
+      width: 100%;
+    }
+    &_items {
+      margin-top: 6.4rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      justify-items: center;
+      row-gap: 3.2rem;
+      @include breakpoint(1200px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @include md {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include sm {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      &-item {
+        list-style-type: none;
+        list-style: none;
+
+        .product-info {
+          position: relative;
+          &:hover {
+            opacity: 0.77;
+            &::before {
+              content: "Add to cart";
+              width: 12rem;
+              height: 2.5rem;
+              font-size: 1.6rem;
+              @include absoluteCenter;
+              border-radius: 5px;
+              text-align: center;
+              cursor: pointer;
+              transition: all 0.3s linear;
+              font-weight: 600;
+              background-color: rgba(0, 0, 0, 0.35);
+            }
+          }
+
+          &_details {
+            h5 {
+              font-size: 1.6rem;
+            }
+            span {
+              font-size: 1.3rem;
+              font-weight: 300;
+            }
+          }
+        }
+      }
+    }
+
+    .none {
+      display: none;
+    }
+
+    &_buttons {
+      text-align: center;
+      transform: translateY(-100%);
+      @include flexCenter;
+      gap: 1.6rem;
+
+      .products-btn {
+        width: 170px;
+        padding: 0.5rem 3.6rem;
+        font-size: 1.7rem;
+        font-weight: 700;
+        background-color: $secondary-color;
+        color: $text-color;
+        @include sm {
+          padding: 0.3rem 2rem;
+        }
+        &::backdrop {
+          position: absolute;
+          top: 50%;
+          width: 5rem;
+          height: 0.8rem;
+          background-color: $secondary-color;
+          opacity: 0.7;
+        }
+        @include onHover;
+      }
+
+      .tab--active {
+        background-color: $primary-color;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  .cart {
+    position: fixed;
+    width: 8rem;
+    height: 8rem;
+    top: 85%;
+    right: 0;
+    i {
+      font-size: 3.6rem;
+      color: $secondary-color;
+      cursor: pointer;
+    }
+
+    span {
+      font-size: 1.6rem;
+
+      font-weight: 600;
+      position: absolute;
+      left: 20%;
+    }
+  }
+  .overlay1 {
+    position: fixed;
+    top: 0%;
+    width: 50%;
+    right: 0%;
+    transform: translateY(50%);
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    transition: all 0.5s;
+  }
+}

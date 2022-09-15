@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/sass/main.css" />
+    <script src="/script/components/prices.js" type="module" defer></script>
+    <script src="/script/components/modal.js" type="module" defer></script>
+    <title>Pesti</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="/">
+        <img src="/assets/images/Logo container.svg" class="Pesti logo" />
+      </a>
+      <!--                               -->
+      <!-- LIIIIIIIIINNNNNNNNKKKKKSSSSSSSSSSSSSS -->
+      <!--                                -->
+
+      <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+    </nav>
+    <section class="container price">
+      <div class="price-img">
+        <img src="/assets/images/price/price-img.svg" alt="Price image" />
+      </div>
+      <form>
+        <h3 class="secondary-heading">Let's talk</h3>
+        <p>
+          To request a quote or want to meet up, contact us directly or fill out
+          the form and we will get back to you promptly.
+        </p>
+        <div class="inputs">
+          <div class="text-inputs">
+            <input type="text" name="Name" placeholder="Name" class="text" />
+            <input type="email" name="Email" placeholder="Email" class="text" />
+            <input
+              type="text"
+              name="address"
+              placeholder="Address"
+              class="text"
+            />
+            <input
+              type="number"
+              name="Tele"
+              placeholder="Telephone"
+              class="text"
+            />
+            <div class="bullets">
+              <input type="checkbox" name="Tele" placeholder="Telephone" />
+              <label>Commercial</label>
+              <input type="checkbox" name="Tele" placeholder="Telephone" />
+              <label>Residential</label>
+            </div>
+          </div>
+          <div class="text-field">
+            <textarea placeholder="Describe your problem"></textarea>
+            <button class="btn text-field-btn">Request a quote</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <hr style="margin-top: 10rem" />
+    <footer>
+      <div class="footer-items">
+        <img src="/assets/images/Logo container.svg" />
+        <div class="footer--1">
+          <h5 class="footer-title">Quick links</h5>
+          <hr />
+
+          <ul>
+            <li>Pesto control Services</li>
+            <li>Money-Back guarantee</li>
+            <li>Contact us</li>
+            <li>Privacy Policy</li>
+          </ul>
+        </div>
+        <div class="footer--1">
+          <h5 class="footer-title">Services</h5>
+          <hr />
+          <ul>
+            <li>Pesto control Services</li>
+            <li>Money-Back guarantee</li>
+            <li>Contact us</li>
+            <li>Privacy Policy</li>
+          </ul>
+        </div>
+        <div class="footer--1">
+          <h5 class="footer-title">Contact</h5>
+          <hr />
+
+          <ul>
+            <li>Address: 214 JJ Drive, San jose gusu Zamboanga city , PH</li>
+            <li>Telephone: 613-371-2158</li>
+            <li>Contact us</li>
+            <li>Privacy Policy</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!-- MODAAAAAAALLLL -->
+    <div class="modal hidden">
+      <button class="btn--close-modal">&times;</button>
+      <h2 class="modal__header">Create new account <br /></h2>
+      <form class="modal__form">
+        <label>First Name</label>
+        <input type="text" />
+        <label>Last Name</label>
+        <input type="text" />
+        <label>Email Address</label>
+        <input type="email" />
+        <button class="btn">Sign up &rarr;</button>
+      </form>
+    </div>
+    <div class="overlay hidden"></div>
+    <!-- MOOODAAAALLL ENNDDD -->
+  </body>
+</html>

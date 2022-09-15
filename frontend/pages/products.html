@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/sass/main.css" />
+    <script src="/script/components/products.js" type="module" defer></script>
+    <script src="/script/components/modal.js" type="module" defer></script>
+    <title>Pesti</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="/">
+        <img src="/assets/images/Logo container.svg" class="Pesti logo" />
+      </a>
+      <!--                               -->
+      <!-- LIIIIIIIIINNNNNNNNKKKKKSSSSSSSSSSSSSS -->
+      <!--                                -->
+
+      <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+    </nav>
+    <section class="container product">
+      <div class="product-hero">
+        <div class="product-hero_left">
+          <img
+            src="/assets/images/products/prod-hero-1.svg"
+            alt="exterminator holding sprayer equipment for pest control"
+          />
+        </div>
+        <div class="product-hero_right">
+          <div class="product-hero_right--top">
+            <img
+              src="/assets/images/products/prod-hero-2.svg"
+              alt="exterminator
+                pointing sprayer nozzle for pest control to the camera"
+            />
+          </div>
+          <div class="product-hero_right--bottom">
+            <img
+              src="/assets/images/products/prod-hero-3.svg"
+              alt="Exterminator Successful pest control"
+            />
+          </div>
+        </div>
+        <div class="circle"></div>
+      </div>
+      <div class="product-feature">
+        <div class="product-feature_cards">
+          <div class="card">
+            <div class="card--icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <h4>Super fast and free delivery</h4>
+          </div>
+          <div class="card card--mid">
+            <div class="card--mid-up">
+              <div class="card--icon">
+                <i class="fa-solid fa-check"></i>
+                <h4>Non contact shipping</h4>
+              </div>
+            </div>
+
+            <div class="card--mid-bot">
+              <div class="card--icon">
+                <i class="fa-solid fa-sack-dollar"></i>
+                <h4>Money back guarantee</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card--icon">
+              <i class="fa-regular fa-credit-card"></i>
+            </div>
+            <h4>Super secure payment system</h4>
+          </div>
+        </div>
+      </div>
+      <div class="product-list">
+        <!-- <ul class="product-list_items">
+          <li class="product-list_items-item">
+            <div class="product-info">
+              <img
+                class="product-info_media"
+                alt=""
+                src="/assets/images/products/prod-1.svg"
+              />
+              <div class="product-info_details">
+                <h5>Safety gear kit</h5>
+                <span>Php 1,834</span>
+                <p>⭐⭐ (1234 reviews)</p>
+              </div>
+            </div>
+          </li>
+        </ul> -->
+
+        <div class="product-list_buttons">
+          <button class="btn products-btn btn--all tab--active">All</button>
+          <button class="btn products-btn btn--equip">equipment</button>
+          <button class="btn products-btn btn--qwerty">qwerty</button>
+        </div>
+      </div>
+
+      <div class="cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <!-- <span class="count">3</span> -->
+      </div>
+    </section>
+    <footer>
+      <div class="footer-items">
+        <img src="/assets/images/Logo container.svg" />
+        <div class="footer--1">
+          <h5 class="footer-title">Quick links</h5>
+          <hr />
+
+          <ul>
+            <li>Pesto control Services</li>
+            <li>Money-Back guarantee</li>
+            <li>Contact us</li>
+            <li>Privacy Policy</li>
+          </ul>
+        </div>
+        <div class="footer--1">
+          <h5 class="footer-title">Services</h5>
+          <hr />
+          <ul>
+            <li>Pesto control Services</li>
+            <li>Money-Back guarantee</li>
+            <li>Contact us</li>
+            <li>Privacy Policy</li>
+          </ul>
+        </div>
+        <div class="footer--1">
+          <h5 class="footer-title">Contact</h5>
+          <hr />
+
+          <ul>
+            <li>Address: 214 JJ Drive, San jose gusu Zamboanga city , PH</li>
+            <li>Telephone: 613-371-2158</li>
+            <li>Contact us</li>
+            <li>Privacy Policy</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!-- MODAAAAAAALLLL -->
+    <div class="modal hidden">
+      <button class="btn--close-modal">&times;</button>
+      <h2 class="modal__header">Create new account <br /></h2>
+      <form class="modal__form">
+        <label>First Name</label>
+        <input type="text" />
+        <label>Last Name</label>
+        <input type="text" />
+        <label>Email Address</label>
+        <input type="email" />
+        <button class="btn">Sign up &rarr;</button>
+      </form>
+    </div>
+    <div class="overlay hidden"></div>
+    <!-- MOOODAAAALLL ENNDDD -->
+  </body>
+</html>

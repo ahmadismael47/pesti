@@ -1,0 +1,17 @@
+@use "custom" as *;
+
+// @use "../sass/sections/_navbar";
+
+@use "sections/_navbar";
+@use "components/mixins";
+@use "sections/hero";
+@use "sections/road";
+@use "sections/services";
+@use "sections/testimonial";
+@use "sections/products";
+@use "sections/prices";
+@use "sections/footer";
+@use "sections/modal";
+// .navbar {
+//   background-color: black;
+// }

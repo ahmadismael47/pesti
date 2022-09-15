@@ -1,0 +1,30 @@
+@use "../custom" as *;
+@use "../components/mixins" as *;
+
+footer {
+  display: flex;
+  min-height: 20rem;
+  color: $text-color;
+  padding: 1.6rem;
+  justify-content: center;
+  img {
+    filter: brightness(0.5);
+  }
+  .footer-items {
+    @include flex;
+
+    ul {
+      list-style: none;
+
+      li {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  .footer--1 {
+    margin-left: 2.4rem;
+  }
+  .footer-title {
+    font-size: 1.6rem;
+  }
+}

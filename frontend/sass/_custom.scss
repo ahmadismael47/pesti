@@ -1,0 +1,103 @@
+@use "components/mixins" as *;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+//colors
+
+// $primary-color: #51e8ef;
+$primary-color: #57c4cd;
+$secondary-color: #ef5851;
+$dark-color: #151515;
+$text-color: #f4f4f4;
+$permanent: Permanent Marker, sans, serif;
+$poppins: Poppins, sans-serif;
+$containerP: 1.6rem;
+$border-color: rgba(244, 244, 244, 0.4);
+
+// breakpoints
+// $breakpoints: (
+//   "phone": 360px,
+//   "table": 768px,
+//   "desktop": 1336px,
+//   "lgDesktop": 1920px,
+// ) !default;
+
+html {
+  font-size: 62.5%;
+  @include breakpoint(968px) {
+    font-size: 9px;
+  }
+  @include sm {
+    font-size: 7px;
+  }
+}
+body {
+  font-family: $poppins;
+  background-color: $dark-color;
+  width: 100%;
+}
+// GENERAL
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+
+  &:link,
+  &:visited,
+  &:focus,
+  &:active {
+    color: $text-color;
+  }
+}
+
+.container {
+  width: 100%;
+  padding: $containerP;
+}
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-family: $poppins;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.5s;
+  z-index: 10;
+}
+.btn_link {
+  border: solid $primary-color;
+  font-size: 1.7rem;
+  border-width: 0 0 2px;
+}
+.primary-heading {
+  font-size: 6.4rem;
+  font-family: $permanent;
+  letter-spacing: 1.6rem;
+  text-transform: uppercase;
+  color: $primary-color;
+  line-height: 1.2;
+}
+.secondary-heading {
+  font-size: 4.4rem;
+  font-family: $permanent;
+  letter-spacing: 1.2rem;
+  color: $primary-color;
+  text-align: center;
+}
+p {
+  letter-spacing: 2px;
+}
+
+//@at-root
+// @import "../../node_modules/@fontsource/permanent-marker/index.css";
+@import url("//fonts.cdnfonts.com/css/permanent-marker");
+@import url("//fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");

@@ -1,0 +1,166 @@
+@use "../custom" as *;
+@use "../components/mixins" as *;
+
+.products {
+  position: absolute;
+  top: 80%;
+
+  .featured-products {
+    @include flexCenter;
+    align-items: center;
+    flex-direction: column;
+    .products-heading {
+      font-family: $poppins;
+      color: $text-color;
+      font-size: 2.4rem;
+      line-height: 1;
+      letter-spacing: 3px;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 5%;
+        opacity: 0.3;
+        width: 32rem;
+        height: 1rem;
+        background-color: $primary-color;
+        @include blurry;
+      }
+    }
+    .products-subheading {
+      font-size: 1.8rem;
+      color: $text-color;
+      font-weight: 400;
+    }
+
+    &--box {
+      @include flexCenter;
+      background-color: rgba(0, 0, 0, 0.35);
+      flex-direction: column;
+      width: clamp(40rem, 90%, 100rem);
+      @include md {
+        width: 100%;
+      }
+      border: 1px solid $border-color;
+      padding: 1.6rem;
+      gap: 1.6rem;
+      position: relative;
+      overflow-x: hidden;
+
+      .slider {
+        @include flexCenter;
+        max-width: 100rem;
+        min-height: 47rem;
+
+        .slider_btn--left {
+          position: absolute;
+          left: 0%;
+        }
+        .slider_btn--right {
+          position: absolute;
+          z-index: 1;
+          right: 0%;
+        }
+
+        .slide {
+          @include flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          height: 45rem;
+          width: 80%;
+          transition: all 0.5s ease-in-out;
+          &::before {
+            content: "\201F";
+            position: absolute;
+            bottom: 0%;
+            left: 0%;
+            font-size: 17rem;
+            color: $secondary-color;
+            z-index: -1;
+            opacity: 0.4;
+          }
+          &-customer {
+            @include flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1.6rem;
+            color: $text-color;
+
+            h4 {
+              font-size: 2.4rem;
+              letter-spacing: 1.7px;
+              font-weight: 600;
+            }
+            span {
+              margin-top: -1rem;
+              font-size: 1.3rem;
+              font-weight: 500;
+            }
+            blockquote {
+              font-size: 1.4rem;
+              font-weight: 300;
+              text-align: start;
+              line-height: 1.5;
+            }
+          }
+        }
+        .slider_btn--right {
+          background-color: transparent;
+        }
+        .slider_btn--left {
+          background-color: transparent;
+        }
+        i {
+          color: $primary-color;
+          font-size: 5rem;
+          opacity: 0.25;
+
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+
+        .dots {
+          position: absolute;
+          left: 10%;
+          top: 20%;
+
+          .dots_dot {
+            border: none;
+            background-color: #b9b9b9;
+            opacity: 0.7;
+            height: 0.3rem;
+            width: 1.6rem;
+            margin-right: 1.75rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.5s;
+
+            /* Only necessary when overlying images */
+            /* box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.7); */
+          }
+          .dots_dot--active {
+            background-color: $primary-color;
+            /* background-color: #888; */
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  @include breakpoint(1100px) {
+    top: 75%;
+  }
+  @include md {
+    top: 60%;
+    width: 100%;
+    img {
+      width: 50%;
+    }
+  }
+  @include sm {
+    top: 68%;
+  }
+}
