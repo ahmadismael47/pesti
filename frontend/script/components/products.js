@@ -15,7 +15,7 @@ const fetchProducts = async () => {
     productsList = data
     // renderProducts(productsList)
     console.log(productsList)
-    renderProducts(productsList)
+    renderProducts()
   } catch (error) {
     console.log(error)
   }
@@ -74,7 +74,7 @@ const getValue = async () => {
 
       console.log(searchedProd)
       productsList = searchedProd
-      renderProducts(productsList)
+      renderProducts()
     }
   } catch (error) {
     console.log(error)
@@ -103,7 +103,6 @@ const renderEquipments = (e) => {
   qwerty.forEach((i) => i.classList.add("none"))
   equipments.forEach((i) => i.classList.remove("none"))
   console.log("equipss only")
-  const clicked = e.target
   removeActive()
   equipBtn.classList.add("tab--active")
 }
@@ -113,13 +112,15 @@ const renderLason = (e) => {
     qwe.classList.remove("none")
   }
   equipments.forEach((i) => i.classList.add("none"))
-  const clicked = e.target
   console.log("equipss only")
 
   removeActive()
   lason.classList.add("tab--active")
 }
 const renderAll = () => {
+  equipments.forEach((i) => i.classList.remove("none"))
+  qwerty.forEach((i) => i.classList.remove("none"))
+  btnCont.forEach((b) => b.classList.remove("tab--active"))
   allCatBtn.classList.add("tab--active")
   fetchProducts()
 }
