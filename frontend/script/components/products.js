@@ -1,30 +1,60 @@
 import { rendNavbar } from "./navbar.js"
-import { productsList } from "../assets/dummyData.js"
+// import { productsList } from "../assets/dummyData.js"
+
 rendNavbar()
 const productsCont = document.querySelector(".product-list")
 const prodItem = document.createElement("ul")
 
-prodItem.innerHTML = productsList
-  .map((item) => {
-    const { id, pName, pPrice, pImg, pSold, pStars, pCategory } = item
-    return `
-              <li class="product-list_items-item ${pCategory}">
-                  <div class="product-info">
-                      <img
-                      class="product-info_media"
-                      alt=""
-                      src=${pImg}
-                      />
-                      <div class="product-info_details">
-                          <h5>${pName}</h5>
-                          <span>Php ${pPrice}</span>
-                          <p>${pStars} ${pSold} sold</p>
-                      </div>
-                  </div>
-              </li>
-          `
-  })
-  .join("")
+var productsList = []
+const fetchProducts = async () => {
+  try {
+    const { data } = await axios.get("/api/products")
+    // const { data } = await axios.get("/api/products")
+
+    // const { data } = await axios.get("/api/products")
+    productsList = data
+    // renderProducts(productsList)
+    console.log(productsList)
+    renderProducts(productsList)
+  } catch (error) {
+    console.log(error)
+  }
+}
+fetchProducts()
+
+const renderProducts = () => {
+  prodItem.innerHTML = productsList
+    .map((item) => {
+      const {
+        _id: id,
+        name,
+        description,
+        image,
+        category,
+        price,
+        rating,
+        numReviews,
+      } = item
+      return `
+            <li class="product-list_items-item ${category}">
+                <div class="product-info">
+                    <img
+                    class="product-info_media"
+                    alt=""
+                    src="${image}"
+                    />
+                    <div class="product-info_details">
+                        <h5>${name}</h5>
+                        <span>Php ${price}</span>
+                        <p>${numReviews} ${rating} sold</p>
+                    </div>
+                </div>
+            </li>
+        `
+    })
+    .join("")
+}
+
 prodItem.classList.add("product-list_items")
 productsCont.append(prodItem)
 
@@ -39,9 +69,10 @@ const removeActive = () => {
   btnCont.forEach((b) => b.classList.remove("tab--active"))
 }
 const renderEquipments = (e) => {
-  for (let qwe of qwerty) {
-    qwe.classList.add("none")
-  }
+  // for (let qwe of qwerty) {
+  //   qwe.classList.add("none")
+  // }
+  qwerty.forEach((i) => i.classList.add("none"))
   equipments.forEach((i) => i.classList.remove("none"))
   console.log("equipss only")
   const clicked = e.target
@@ -55,6 +86,8 @@ const renderLason = (e) => {
   }
   equipments.forEach((i) => i.classList.add("none"))
   const clicked = e.target
+  console.log("equipss only")
+
   removeActive()
   lason.classList.add("tab--active")
 }
@@ -63,6 +96,7 @@ const renderAll = () => {
   qwerty.forEach((i) => i.classList.remove("none"))
   btnCont.forEach((b) => b.classList.remove("tab--active"))
   allCatBtn.classList.add("tab--active")
+  console.log("equipss only")
 }
 
 let counts = 0

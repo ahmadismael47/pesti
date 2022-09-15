@@ -94,3 +94,15 @@ dotContainer.addEventListener("click", function (e) {
 //     (s, i) => (s.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
 //   )
 // })
+
+const fetchProducts = async () => {
+  try {
+    const { data } = await axios.get("/api/products")
+
+    // const { data } = await axios.get("/api/products")
+    console.log(data)
+  } catch (error) {
+    console.log(error)
+  }
+}
+fetchProducts()
