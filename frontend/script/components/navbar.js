@@ -30,10 +30,10 @@ export const rendNavbar = () => {
       console.log(user.user)
       const login = document.createElement("li")
       const logout = document.createElement("li")
+      const addProducts = document.createElement("li")
       login.innerHTML = ` 
                           <a>
-                          <i class="fa-solid fa-id-badge"></i><a  class="${user.user.name}">${user.user.name}
-                          <img src=${user.user.picture} />
+                          <img src=${user.user.picture} class="user-profile" style="border-radius:50%; width:5rem"/>
                           </a>
   
                         `
@@ -45,9 +45,18 @@ export const rendNavbar = () => {
                       `
       document.querySelector(".Login").remove()
 
-      link.append(login)
+      if (user.user.email === "capstab2018@gmail.com") {
+        addProducts.innerHTML = ` 
+        <a>
+        <i class="fa-solid fa-cart-plus"></i><a  class="logout">Add products
+        </a>
+
+      `
+        link.append(addProducts)
+      }
+
       link.append(logout)
-      // linkContainer.appendChild(login)
+      link.append(login)
     } catch (error) {
       console.log(error)
     }
