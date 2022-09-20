@@ -1135,6 +1135,55 @@ form {
 }
 form input {
   min-height: 3.2rem;
+  border: none;
+  border-radius: 5px;
+}
+form textarea {
+  border-radius: 5px;
+}
+form input::-moz-placeholder {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+form input:-ms-input-placeholder {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+form input::placeholder {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+form textarea::-moz-placeholder {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+form textarea:-ms-input-placeholder {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+form textarea::placeholder {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+form .add {
+  background-color: #57c4cd;
+  padding: 0.8rem;
+  font-weight: 700;
 }
 
 table {
@@ -1164,7 +1213,9 @@ tr:nth-child(even) {
 .trash {
   background-color: transparent;
   border: none;
+  color: #ef5851;
+  cursor: pointer;
 }
 .trash:hover {
-  color: #ef5851;
+  opacity: 0.8;
 }/*# sourceMappingURL=main.css.map */
