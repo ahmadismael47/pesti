@@ -48,7 +48,7 @@ export const rendNavbar = () => {
       if (user.user.email === "capstab2018@gmail.com") {
         addProducts.innerHTML = ` 
         <a>
-        <i class="fa-solid fa-cart-plus"></i><a  class="logout">Add products
+        <i class="fa-solid fa-cart-plus"></i><a  class="logout" href="/pages/adminDashboard.html">Add products
         </a>
 
       `

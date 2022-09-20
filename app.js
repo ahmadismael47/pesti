@@ -40,6 +40,13 @@ app.get("/profile", requiresAuth(), (req, res) => {
 app.get("/api/products", (req, res) => {
   res.status(200).json(products)
 })
+app.post("/api/products", (req, res) => {
+  let newProduct = {}
+   newProduct = req.body
+  products.push(newProduct)
+  console.log(newProduct)
+  res.status(200).json(products)
+})
 
 app.get("/api/products/search", (req, res) => {
   const category = req.query.category
