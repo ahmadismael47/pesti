@@ -1122,7 +1122,8 @@ footer .footer-title {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 5rem 0;
+  padding-top: 50rem;
+  height: 80vh;
 }
 
 form {
@@ -1157,4 +1158,13 @@ td, th {
 tr:nth-child(even) {
   background-color: #57c4cd;
   color: #151515;
+  opacity: 0.5;
+}
+
+.trash {
+  background-color: transparent;
+  border: none;
+}
+.trash:hover {
+  color: #ef5851;
 }/*# sourceMappingURL=main.css.map */

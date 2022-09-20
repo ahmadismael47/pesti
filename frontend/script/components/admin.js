@@ -1,3 +1,4 @@
+
 let pName = document.querySelector(".prod_name")
 let pPrice = document.querySelector(".prod_price")
 let pImg = document.querySelector(".prod_img")
@@ -15,14 +16,15 @@ const addProduct =async (e) =>{
         pCategory = pCategory.value
         pBrand = pBrand.value
         pDesc = pDesc.value
-    //     dataa = {pName, pPrice,pImg, pDesc}
-    //    data = dataa
+
+      
+      if(pName === "" || pBrand ==="" || pCategory ==="" || pDesc ==="" || pImg ==="" || pPrice === "") return
     axios({
         method: 'post',
         url: '/api/products',
         data: {
         
-          id: new Date().getTime(),
+          _id: new Date().getTime(),
           name:pName,
           price:pPrice,
           image:pImg,
@@ -51,13 +53,10 @@ var productsList = []
 const fetchProducts = async () => {
   try {
     const { data } = await axios.get("/api/products")
-    // const { data } = await axios.get("/api/products")
-
-    // const { data } = await axios.get("/api/products")
+    console.log(data)
     productsList = data
-    // renderProducts(productsList)
-    console.log(productsList)
-    renderProducts()
+renderProducts()
+
   } catch (error) {
     console.log(error)
   }
@@ -67,22 +66,12 @@ fetchProducts()
 
 // const productsCont = document.querySelector(".prod_list_admin")
 // const prodItem = document.createElement("tr")
-var productsList = []
 
-const asdqwe = async () => {
-    try {
-      const { data } = await axios.get("/api/products")
-
-      productsList = data
-      console.log(productsList)
-      renderProducts()
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   const productsCont = document.querySelector(".prod_list_admin")
 const prodItem = document.createElement("tbody")
+
+
 
 const renderProducts = () => {
 
@@ -112,7 +101,12 @@ const renderProducts = () => {
              <td>${price}</td>
              <td>${category}</td>
              <td>${brand}</td>
-             <td style="text-align:center"><i class="fa-solid fa-pen-to-square" style="font-size:2rem;margin-right:.8rem"></i><i class="fa-solid fa-trash trash" style="font-size:2rem"></i></td>
+             <td style="text-align:center" >
+         
+              <i class="fa-solid fa-pen-to-square" style="font-size:2rem;margin-right:.8rem"></i>
+              <button class="trash" data-tab="${id}">  <i class="fa-solid fa-trash "  style="font-size:2rem"></i></button>
+             </td>
+
              </tr>
            
             
@@ -122,9 +116,8 @@ const renderProducts = () => {
 
     })
     .join("")
-
-
-
+    let trashBtn = document.querySelectorAll(".trash")
+    trashBtn.forEach((btn) => btn.addEventListener("click", deleteProd))
 
 }
 
@@ -133,8 +126,29 @@ productsCont.append(prodItem)
 
 
 
-renderProducts()
+
+const deleteProd =async (e) =>{
+  e.preventDefault()
+let clicked = e.target.closest(".trash")
+console.log(clicked.dataset.tab)
+  try {
+    const {data} = await axios.delete(`/api/products/${clicked.dataset.tab}`)
+ 
+    
+    productsList = data
+    fetchProducts()
+  } catch (error) {
+    
+  }
+  return
+
+}
+   
 
 
+
+
+
+////////////////////////delete product
 
 

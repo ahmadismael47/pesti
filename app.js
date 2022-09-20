@@ -5,6 +5,8 @@ const cors = require("cors")
 const dotenv = require("dotenv")
 const { auth, requiresAuth } = require("express-openid-connect")
 let user = []
+let newProduct = products
+
 dotenv.config()
 
 app.use(
@@ -38,14 +40,12 @@ app.get("/profile", requiresAuth(), (req, res) => {
 })
 
 app.get("/api/products", (req, res) => {
-  res.status(200).json(products)
+  res.status(200).json(newProduct)
 })
 app.post("/api/products", (req, res) => {
-  let newProduct = {}
-   newProduct = req.body
-  products.push(newProduct)
-  console.log(newProduct)
-  res.status(200).json(products)
+  let createdProduct = req.body
+  newProduct.push(createdProduct)
+  res.status(200).json(newProduct)
 })
 
 app.get("/api/products/search", (req, res) => {
@@ -55,9 +55,12 @@ app.get("/api/products/search", (req, res) => {
     category,
   })
 })
-app.get("/api/products/:id", (req, res) => {
-  const product = products.find((p) => p._id === req.params.id)
-  res.json(product)
+
+
+app.delete("/api/products/:id", (req, res) => {
+  const product = newProduct.filter((p) => p._id !== req.params.id)
+  newProduct = product
+  res.json(newProduct)
 })
 
 const PORT = 3000
