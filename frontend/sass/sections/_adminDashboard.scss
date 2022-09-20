@@ -5,24 +5,45 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5rem;
+    flex-direction: column;
+    margin: 5rem 0;
 }
 form{
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
-    
-
+    width: 50%;
+    margin-bottom: 5rem;
 
     input{
         min-height:3.2rem ;
     }
 }
 
-.prod_list_admin{
-    display: flex;
-    flex-direction: column;
-    gap:2.4rem;
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color:#f4f4f4;
+    font-weight: 600;
+    
 
-   
-}
+    .head{
+        th{
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+    }
+  }
+  
+  td, th {
+    border: 1px solid #f4f4f4;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: $primary-color;
+    color:$dark-color
+
+  }
