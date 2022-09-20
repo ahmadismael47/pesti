@@ -8,10 +8,10 @@ const addProduct =async (e) =>{
     try {
     //     let {data } = await axios.post("/api/products")
     //     let dataa = {}
-    //     pName = pName.value
-    //     pPrice = pPrice.value
-    //     pImg = pImg.value
-    //     pDesc = pDesc.value
+        pName = pName.value
+        pPrice = pPrice.value
+        pImg = pImg.value
+        pDesc = pDesc.value
     //     dataa = {pName, pPrice,pImg, pDesc}
     //    data = dataa
     axios({
@@ -19,11 +19,11 @@ const addProduct =async (e) =>{
         url: '/api/products',
         data: {
         
-          id: 1234,
-          name: 'Williams',
-          price:1236,
-          image:"/assets/images/images 2/products/wisdom.svg",
-          description: "Wisdom TC Flowable con",
+          id: new Date().getTime(),
+          name:pName,
+          price:pPrice,
+          image:pImg,
+          description: pDesc
         
 
         }
@@ -35,3 +35,32 @@ const addProduct =async (e) =>{
 
 
 add.addEventListener('click', addProduct)
+
+
+
+
+
+
+
+var productsList = []
+const fetchProducts = async () => {
+  try {
+    const { data } = await axios.get("/api/products")
+    // const { data } = await axios.get("/api/products")
+
+    // const { data } = await axios.get("/api/products")
+    productsList = data
+    // renderProducts(productsList)
+    console.log(productsList)
+    renderProducts()
+  } catch (error) {
+    console.log(error)
+  }
+}
+fetchProducts()
+
+
+
+
+
+

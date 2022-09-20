@@ -1,0 +1,28 @@
+@use "../custom" as *;
+@use "../components/mixins" as *;
+
+.dashboard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    
+
+
+    input{
+        min-height:3.2rem ;
+    }
+}
+
+.prod_list_admin{
+    display: flex;
+    flex-direction: column;
+    gap:2.4rem;
+
+   
+}

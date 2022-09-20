@@ -94,6 +94,7 @@
     border: 1px solid $border-color;
     img {
       width: 100%;
+      max-height: 15rem;
     }
     &_items {
       margin-top: 6.4rem;

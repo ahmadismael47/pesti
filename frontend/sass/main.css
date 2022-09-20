@@ -803,6 +803,7 @@ p {
 }
 .product-list img {
   width: 100%;
+  max-height: 15rem;
 }
 .product-list_items {
   margin-top: 6.4rem;
@@ -1114,4 +1115,26 @@ footer .footer-title {
 .hidden {
   visibility: hidden;
   opacity: 0;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+form input {
+  min-height: 3.2rem;
+}
+
+.prod_list_admin {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
 }/*# sourceMappingURL=main.css.map */

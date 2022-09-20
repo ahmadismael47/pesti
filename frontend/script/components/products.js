@@ -42,12 +42,10 @@ const renderProducts = () => {
                     class="product-info_media"
                     alt=""
                     src="${image}"
-                    
                     />
                     <div class="product-info_details">
                         <h5>${name}</h5>
                         <span>Php ${price}</span>
-                        <p>${numReviews} ${rating} sold</p>
                     </div>
                 </div>
             </li>
