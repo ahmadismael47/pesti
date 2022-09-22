@@ -31,11 +31,12 @@
 
   .prof-container {
     display: flex;
+    gap: 1.6rem;
     @include md {
       flex-direction: column;
 
       img {
-        width: 50%;
+        width: clamp(20rem, 50%, 9rem);
       }
     }
   }
@@ -52,6 +53,8 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 1.6rem;
   }
   .fa-check {

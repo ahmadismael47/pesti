@@ -191,6 +191,11 @@
     height: 8rem;
     top: 85%;
     right: 0;
+
+    .tr {
+      transform: translateY(50%);
+      transition: all 1.5s;
+    }
     i {
       font-size: 3.6rem;
       color: $secondary-color;
@@ -216,6 +221,10 @@
     backdrop-filter: blur(4px);
     z-index: 100;
     transition: all 0.5s;
+
+    .tr {
+      transform: translateY(0);
+    }
   }
   .search-box {
     z-index: 99;
@@ -236,5 +245,9 @@
       cursor: pointer;
       color: $primary-color;
     }
+  }
+  .place_order-btn {
+    background-color: $secondary-color;
+    color: $text-color;
   }
 }

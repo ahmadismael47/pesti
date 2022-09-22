@@ -164,7 +164,7 @@ const renderProdCart = async () => {
     <tr class=$>
       <td><h2>TOTAL</h2></td>
       <td><h3>${total}</h3></td>
-      <td></td>
+      <td><button class="btn place_order-btn">Place order</td>
       </tr>
     `;
     prodCartCont.append(createProd);
