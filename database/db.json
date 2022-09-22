@@ -1,0 +1,22 @@
+{
+    "user":[
+       {
+        "id": 1,
+        "name": "Ahmad Ismael" ,
+        "email": "ismaelahmad63@hotmail.com",
+        "status": "Active",
+        "role": "Owner"
+       },
+       {
+        "id": 2,
+        "name": "Paulo Jose Calderon" ,
+        "email": "paulojosecalderon@gmail.com",
+        "status": "Active",
+        "role": "Admin"
+       }
+       
+       
+       
+    ]
+
+}
