@@ -217,4 +217,24 @@
     z-index: 100;
     transition: all 0.5s;
   }
+  .search-box {
+    z-index: 99;
+    position: absolute;
+    top: 120%;
+    right: 10%;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    input {
+      min-height: 2.4rem;
+
+      ::placeholder {
+        font-family: "Poppins", sans-serif;
+      }
+    }
+    i {
+      cursor: pointer;
+      color: $primary-color;
+    }
+  }
 }

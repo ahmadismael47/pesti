@@ -1,89 +1,93 @@
 @use "../custom" as *;
 @use "../components/mixins" as *;
 
-.dashboard{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 50rem;
-    height: 80vh;
+.dashboard {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15rem 1.6rem;
+  gap: 2rem;
+  @include md {
+    display: inline-block;
+  }
 }
-form{
-    display: flex;
-    flex-direction: column;
-    gap: 2.4rem;
-    width: 50%;
-    margin-bottom: 5rem;
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  width: 70%;
+  margin: 5rem auto;
 
-    input{
-        min-height:3.2rem ;
-        border: none;
-        border-radius: 5px ;
-       
-    }
-    textarea{
-        border-radius: 5px;
-    }
-    input::placeholder{
-        font-family: "Poppins", sans-serif;
-        font-size: 1.8rem;
-        text-align: center;
-        font-weight: lighter;
-        text-transform: uppercase;
+  input {
+    min-height: 3.2rem;
+    border: none;
+    border-radius: 5px;
+  }
+  textarea {
+    border-radius: 5px;
+  }
+  input::placeholder {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.8rem;
+    font-weight: lighter;
+    text-transform: uppercase;
+  }
+  textarea::placeholder {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+  }
 
-    }
-    textarea::placeholder{
-        font-family: "Poppins", sans-serif;
-        font-size: 1.8rem;
-        text-align: center;
-        text-transform: uppercase;
-    }
+  .add {
+    background-color: $primary-color;
+    opacity: 0.7;
+    padding: 0.8rem;
+    font-weight: 700;
+    font-size: 2rem;
+    color: $text-color;
 
-
-    .add{
-        background-color: $primary-color;
-        padding: .8rem;
-        font-weight: 700;
+    &:hover {
+      opacity: 1;
     }
-  
+  }
 }
 
 table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    color:#f4f4f4;
-    font-weight: 600;
-    
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  color: #f4f4f4;
+  font-weight: 600;
 
-    .head{
-        th{
-            font-weight: 600;
-            font-size: 1.8rem;
-        }
+  .head {
+    th {
+      font-weight: 600;
+      font-size: 1.8rem;
     }
   }
-  
-  td, th {
-    border: 1px solid #f4f4f4;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: $primary-color;
-    color:$dark-color;
-    opacity:0.5;
 }
 
+td,
+th {
+  border: 1px solid #f4f4f4;
+  text-align: left;
+  padding: 8px;
+  font-size: 1.2rem;
+}
 
-.trash{
-    background-color: transparent;
-    border: none;
-    color: $secondary-color;;
-    cursor: pointer;
-    &:hover{
-       opacity: 0.8;
-    }
+tr:nth-child(even) {
+  background-color: $primary-color;
+  color: $dark-color;
+  opacity: 0.5;
+}
+
+.trash {
+  background-color: transparent;
+  border: none;
+  color: $secondary-color;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
 }

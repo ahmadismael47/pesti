@@ -99,4 +99,29 @@
     z-index: 100;
     transition: all 0.5s;
   }
+
+  .userDropdownContent {
+    display: none;
+    position: absolute;
+    // background-color: #f1f1f1;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.8);
+    z-index: 1;
+    right: 0%;
+    padding: 1.6rem;
+
+    li {
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      gap: 1.6rem;
+
+      a {
+        margin-top: 1.6rem;
+      }
+    }
+  }
+  .userDropdown:hover .userDropdownContent {
+    display: block;
+  }
 }

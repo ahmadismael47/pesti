@@ -1,81 +1,73 @@
+import { rendNavbar } from "./navbar.js";
 
-let pName = document.querySelector(".prod_name")
-let pPrice = document.querySelector(".prod_price")
-let pImg = document.querySelector(".prod_img")
-let pDesc = document.querySelector(".prod_desc")
-let pBrand = document.querySelector(".prod_brand")
-let pCategory = document.querySelector(".prod_category")
-let add = document.querySelector(".add")
-const addProduct =async (e) =>{
-    try {
+rendNavbar();
+let pName = document.querySelector(".prod_name");
+let pPrice = document.querySelector(".prod_price");
+let pImg = document.querySelector(".prod_img");
+let pDesc = document.querySelector(".prod_desc");
+let pBrand = document.querySelector(".prod_brand");
+let pCategory = document.querySelector(".prod_category");
+let add = document.querySelector(".add");
+const addProduct = async (e) => {
+  try {
     //     let {data } = await axios.post("/api/products")
     //     let dataa = {}
-        pName = pName.value
-        pPrice = pPrice.value
-        pImg = pImg.value
-        pCategory = pCategory.value
-        pBrand = pBrand.value
-        pDesc = pDesc.value
+    pName = pName.value;
+    pPrice = pPrice.value;
+    pImg = pImg.value;
+    pCategory = pCategory.value;
+    pBrand = pBrand.value;
+    pDesc = pDesc.value;
 
-      
-      if(pName === "" || pBrand ==="" || pCategory ==="" || pDesc ==="" || pImg ==="" || pPrice === "") return
+    if (
+      pName === "" ||
+      pBrand === "" ||
+      pCategory === "" ||
+      pDesc === "" ||
+      pImg === "" ||
+      pPrice === ""
+    )
+      return;
     axios({
-        method: 'post',
-        url: '/api/products',
-        data: {
-        
-          _id: new Date().getTime(),
-          name:pName,
-          price:pPrice,
-          image:pImg,
-          description: pDesc,
-          category:pCategory,
-          brand:pBrand,
-        
+      method: "post",
+      url: "/api/products",
+      data: {
+        _id: new Date().getTime(),
+        name: pName,
+        price: pPrice,
+        image: pImg,
+        description: pDesc,
+        category: pCategory,
+        brand: pBrand,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-        }
-      });
-    } catch (error) {
-        console.log(error)
-    }
-}
+add.addEventListener("click", addProduct);
 
-
-add.addEventListener('click', addProduct)
-
-
-
-
-
-
-
-var productsList = []
+var productsList = [];
 const fetchProducts = async () => {
   try {
-    const { data } = await axios.get("/api/products")
-    console.log(data)
-    productsList = data
-renderProducts()
-
+    const { data } = await axios.get("/api/products");
+    console.log(data);
+    productsList = data;
+    renderProducts();
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
-fetchProducts()
-
+};
+fetchProducts();
 
 // const productsCont = document.querySelector(".prod_list_admin")
 // const prodItem = document.createElement("tr")
 
-
-  const productsCont = document.querySelector(".prod_list_admin")
-const prodItem = document.createElement("tbody")
-
-
+const productsCont = document.querySelector(".prod_list_admin");
+const prodItem = document.createElement("tbody");
 
 const renderProducts = () => {
-
-
   prodItem.innerHTML = productsList
     .map((item) => {
       const {
@@ -87,10 +79,9 @@ const renderProducts = () => {
         price,
         rating,
         numReviews,
-        brand
-      } = item
+        brand,
+      } = item;
 
-      
       return `
    
                     
@@ -111,44 +102,26 @@ const renderProducts = () => {
            
             
 
-        `
-
-
+        `;
     })
-    .join("")
-    let trashBtn = document.querySelectorAll(".trash")
-    trashBtn.forEach((btn) => btn.addEventListener("click", deleteProd))
+    .join("");
+  let trashBtn = document.querySelectorAll(".trash");
+  trashBtn.forEach((btn) => btn.addEventListener("click", deleteProd));
+};
 
-}
+productsCont.append(prodItem);
 
-
-productsCont.append(prodItem)
-
-
-
-
-const deleteProd =async (e) =>{
-  e.preventDefault()
-let clicked = e.target.closest(".trash")
-console.log(clicked.dataset.tab)
+const deleteProd = async (e) => {
+  e.preventDefault();
+  let clicked = e.target.closest(".trash");
+  console.log(clicked.dataset.tab);
   try {
-    const {data} = await axios.delete(`/api/products/${clicked.dataset.tab}`)
- 
-    
-    productsList = data
-    fetchProducts()
-  } catch (error) {
-    
-  }
-  return
+    const { data } = await axios.delete(`/api/products/${clicked.dataset.tab}`);
 
-}
-   
-
-
-
-
+    productsList = data;
+    fetchProducts();
+  } catch (error) {}
+  return;
+};
 
 ////////////////////////delete product
-
-

@@ -4,8 +4,23 @@ const products = require("./backend/data/product")
 const cors = require("cors")
 const dotenv = require("dotenv")
 const { auth, requiresAuth } = require("express-openid-connect")
+const multer = require('multer')
+const path  = require("path")
+const storage = multer.diskStorage({
+  destination:(req, file, cb) =>{
+    cb(null, "images")
+
+  },
+  filename:(req,file, cb)=>{
+    console.log(file)
+    cb(null, Date.now() + path.extname(file.originalname))
+  }
+})
+
+const upload = multer ({storage: storage})
 let user = []
 let newProduct = products
+let cartProduct = []
 
 dotenv.config()
 
@@ -26,12 +41,9 @@ app.use(cors())
 
 app.use(express.json())
 
-// app.get("/", (req, res) => {
-//   res.send("api")
-// })
-// app.get("/", (req, res) => {
-//   res.json(req.oidc.isAuthenticated() ? "Logged in" : "Logged out")
-// })
+app.post("/upload", upload.single("image"),(req, res) =>{
+  res.json({message:"Uploaded"})
+})
 
 app.get("/profile", requiresAuth(), (req, res) => {
   // res.json(req.oidc.user)
@@ -56,12 +68,22 @@ app.get("/api/products/search", (req, res) => {
   })
 })
 
+app.get("/api/products/cart", (req,res) =>{
 
+      res.status(200).json(cartProduct)
+})
+app.get("/api/products/:id", (req, res) => {
+  const product = newProduct.find((p) => p._id === req.params.id)
+  cartProduct.push(product) 
+  res.json(cartProduct)
+})
 app.delete("/api/products/:id", (req, res) => {
   const product = newProduct.filter((p) => p._id !== req.params.id)
   newProduct = product
   res.json(newProduct)
 })
+
+
 
 const PORT = 3000
 

@@ -1,0 +1,61 @@
+@use "../custom" as *;
+@use "../components/mixins" as *;
+
+.profile {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 15rem 1.6rem;
+  gap: 2rem;
+  color: $text-color;
+  h4 {
+    font-size: 1.6rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+  hr {
+    width: 20%;
+    position: absolute;
+  }
+  label {
+    display: inline-block;
+    width: 100px;
+    font-size: 1.4rem;
+  }
+  input {
+    display: inline-block;
+    font-size: 1.4rem;
+    min-height: 2.4rem;
+  }
+
+  .prof-container {
+    display: flex;
+    @include md {
+      flex-direction: column;
+
+      img {
+        width: 50%;
+      }
+    }
+  }
+
+  .left {
+    @include md {
+      order: 2;
+    }
+    div {
+      margin-top: 1.6rem;
+    }
+  }
+  .right {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+  .fa-check {
+    color: $primary-color;
+    margin-left: 0.8rem;
+  }
+}

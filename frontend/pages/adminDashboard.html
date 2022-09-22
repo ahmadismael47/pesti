@@ -10,10 +10,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
     />
     <link rel="stylesheet" href="/sass//main.css" />
-    <script src="/script/components/products.js" type="module" defer></script>
     <script src="/script/components/modal.js" type="module" defer></script>
     <script src="/script/components/admin.js" type="module" defer></script>
-
 
     <title>Pesti</title>
     <!-- <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" /> -->
@@ -32,34 +30,37 @@
 
       <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
     </nav>
-    
+
     <main class="dashboard">
-            <form>
-                <input type="text"  placeholder="name" class="prod_name" required/>
-                <input type="number" placeholder="price" class="prod_price" required/>
-                <input type="text" placeholder="image url" class="prod_img" required/>
-                <input type="text" placeholder="brand" class="prod_brand" required/>
-                <input type="text" placeholder="category" class="prod_category" required/>
-                <textarea  placeholder="description" class="prod_desc" required></textarea>
-                <button type="submit" class="btn primary-btn add">Add product</button>  
-            </form>
-            <table class="prod_list_admin">
-              <tr class="head">
-                <th>NAME</th>
-                <th>PRICE</th>
-                <th>CATEGORY</th>
-                <th>BRAND</th>
-                <th></th>
-              </tr>
-             
-           
-            </table>
-
+      <form>
+        <input type="text" placeholder="name" class="prod_name" required />
+        <input type="number" placeholder="price" class="prod_price" required />
+        <input type="text" placeholder="image url" class="prod_img" required />
+        <input type="text" placeholder="brand" class="prod_brand" required />
+        <input
+          type="text"
+          placeholder="category"
+          class="prod_category"
+          required
+        />
+        <textarea
+          placeholder="description"
+          class="prod_desc"
+          required
+        ></textarea>
+        <button type="submit" class="btn primary-btn add">Add product</button>
+      </form>
+      <table class="prod_list_admin">
+        <tr class="head">
+          <th>NAME</th>
+          <th>PRICE</th>
+          <th>CATEGORY</th>
+          <th>BRAND</th>
+          <th></th>
+        </tr>
+      </table>
     </main>
-    
-
 
     <!-- MODAAAAAAALLLL -->
- 
   </body>
 </html>
